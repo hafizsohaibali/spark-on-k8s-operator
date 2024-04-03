@@ -38,7 +38,7 @@ FROM ${SPARK_IMAGE}
 USER root
 COPY --from=builder /usr/bin/spark-operator /usr/bin/
 RUN apt-get update \
-    && apt-get upgrade \
+    && apt-get upgrade -y \
     && apt-get install -y openssl curl tini \
     && rm -rf /var/lib/apt/lists/*
 COPY hack/gencerts.sh /usr/bin/
